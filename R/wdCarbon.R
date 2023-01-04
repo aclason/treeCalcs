@@ -12,7 +12,7 @@
 #' x Absolute density(g/cm3) # species and decay class specific (Harmon et al. 2008)
 #' x CarbonConcentration # species and decay class specific (Harmon et al. 2013)
 #' @examples
-cwdCarbonFN <- function(volume_ha, Decay_class, Species){
+cwdCarbonFN <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
   if(is.na(Species)){
     print(paste("Species is not found"))
     DC_Sp_C <- NA
@@ -89,17 +89,24 @@ cwdCarbonFN <- function(volume_ha, Decay_class, Species){
       DC_Sp_C <-(volume_ha*0.412*0.11*0.473)
     }
   } else if (Species == "UD"){
-    if (Decay_class == "1"){
-      DC_Sp_C <-(volume_ha*1*0.392*0.478)
-    } else if (Decay_class == "2"){
-      DC_Sp_C <-(volume_ha*1*0.416*0.477)
-    } else if (Decay_class == "3"){
-      DC_Sp_C <-(volume_ha*1*0.317*0.481)
-    } else if (Decay_class == "4"){
-      DC_Sp_C <-(volume_ha*0.8*0.163*0.474)
-    } else if (Decay_class == "5"){
-      DC_Sp_C <-(volume_ha*0.412*0.11*0.473)
+    if(BECzone == "SBS"){
+      if (Decay_class == "1"){
+        DC_Sp_C <-(volume_ha*1*0.392*0.478)
+      } else if (Decay_class == "2"){
+        DC_Sp_C <-(volume_ha*1*0.416*0.477)
+      } else if (Decay_class == "3"){
+        DC_Sp_C <-(volume_ha*1*0.317*0.481)
+      } else if (Decay_class == "4"){
+        DC_Sp_C <-(volume_ha*0.8*0.163*0.474)
+      } else if (Decay_class == "5"){
+        DC_Sp_C <-(volume_ha*0.412*0.11*0.473)
+      }
+    } else if(BECzone =="ICH"){
+
+    } else{
+      print("No valid BEC zome provided to calculate average unknown deciduous tree density")
     }
+
   } else if (Species == "U"){
     if (Decay_class == "1"){
       DC_Sp_C <-(volume_ha*1*0.386*0.487)
@@ -118,6 +125,28 @@ cwdCarbonFN <- function(volume_ha, Decay_class, Species){
   return(DC_Sp_C)
 }
 
+
+
+#' Title
+#' @param VolGrid the table of volumes from SORTIE
+#' @param speciesGroupings data.frame of species and groups
+#' @param SizeClassCut cutoff between small and large logs (20 right now)
+#'
+#' @return
+#' @export
+#'
+#' @examples
+cwdCfromSORTIE <- function(VolGrid,speciesGroupings, SizeClassCut){
+
+  #Species, SpGroup
+  # then this function would use that dataframe to calculate group densities from the conversion table
+
+  #need the density conversion table - for groupings here, and unknown above
+
+
+
+
+}
 
 
 #' Title
