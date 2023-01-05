@@ -90,7 +90,11 @@ cwdCarbonFN <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
     }
   } else if (Species == "UD"){
     if(BECzone == "SBS"){
+      dc1 <- cwdC_conv_table[CommonName== "" & CommonName=="", mean(`Absolute density_g.cm3`), by=.(DecayClass)]
+
+
       if (Decay_class == "1"){
+
         DC_Sp_C <-(volume_ha*1*0.392*0.478)
       } else if (Decay_class == "2"){
         DC_Sp_C <-(volume_ha*1*0.416*0.477)
@@ -102,6 +106,17 @@ cwdCarbonFN <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
         DC_Sp_C <-(volume_ha*0.412*0.11*0.473)
       }
     } else if(BECzone =="ICH"){
+      if (Decay_class == "1"){
+        DC_Sp_C <-(volume_ha*1*0.392*0.478)
+      } else if (Decay_class == "2"){
+        DC_Sp_C <-(volume_ha*1*0.416*0.477)
+      } else if (Decay_class == "3"){
+        DC_Sp_C <-(volume_ha*1*0.317*0.481)
+      } else if (Decay_class == "4"){
+        DC_Sp_C <-(volume_ha*0.8*0.163*0.474)
+      } else if (Decay_class == "5"){
+        DC_Sp_C <-(volume_ha*0.412*0.11*0.473)
+      }
 
     } else{
       print("No valid BEC zome provided to calculate average unknown deciduous tree density")
@@ -154,9 +169,10 @@ cwdCfromSORTIE <- function(VolGrid,speciesGroupings, SizeClassCut){
 #' @param Diam_class
 #' @param volume
 #' fwdCARBON (Mg/ha) = volume(m3/ha)
-#'                     x Live wood density(g/cm3) # use unknown species (Harmon et al. 2008)
-#'                     x Decay reduction factor for each size class (Harmon and Fasth website)
-#'                     x CarbonConcentration # use 50% (Harmon and Fasth website)
+#' x Live wood density(g/cm3) # use unknown species (Harmon et al. 2008)
+#' x Decay reduction factor for each size class (Harmon and Fasth website)
+#' x CarbonConcentration
+#' use 50% (Harmon and Fasth website)
 #'
 #' @return
 #' @export
