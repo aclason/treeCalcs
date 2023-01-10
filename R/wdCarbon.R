@@ -1,18 +1,25 @@
 
 #' Coarse Woody Debris Carbon
+#' @description This function calculates the amount of carbon in a piece or plot of coarse woody debris based
+#' on the species and decay class. Data is passed to the function by species and decay class. The function will
+#' estimate the carbon of unknown species based on the BEC zone (currently SBS or ICH only, default is set to SBS).
 #'
-#' @param volume_ha
-#' @param Decay_class
-#' @param Species
+#' Currently, the function estimates carbon for: Lodgepole pine, hybrid spruce, subalpine fir, trembling aspen,
+#' paper birch, red alder, cottonwood, amabilis fir, western hemlock, western redcedar, Douglas-fir and
+#' western larch
+#'
+#' @param volume_ha volume/ha of CWD piece or plot
+#' @param Decay_class Decay class of CWD piece or plot
+#' @param Species Species of CWD piece or plot
 #'
 #' @return
 #' @export
 #' @details cwdCARBON (Mg/ha) = volume(m3/ha)
-#' x structural reduction factor # decay class specific (Fraver et al. 2013)
-#' x Absolute density(g/cm3) # species and decay class specific (Harmon et al. 2008)
-#' x CarbonConcentration # species and decay class specific (Harmon et al. 2013)
+#'  x structural reduction factor (decay class specific (Fraver et al. 2013))
+#' x Absolute density(g/cm3) (species and decay class specific (Harmon et al. 2008))
+#' x CarbonConcentration (species and decay class specific (Harmon et al. 2013))
 #' @examples
-cwdCarbonFN <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
+cwdCarbonCalc <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
   if(is.na(Species)){
     print(paste("Species is not found"))
     DC_Sp_C <- NA
@@ -64,7 +71,19 @@ cwdCarbonFN <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
       } else if (Decay_class == "5"){
       DC_Sp_C <-(volume_ha*0.412*0.11*0.473)
       }
-  } else if (Species == "Ep"){
+    } else if (Species == "Ac"){
+      if (Decay_class == "1"){
+        DC_Sp_C <-(volume_ha*1*0.353*0.478)
+      } else if (Decay_class == "2"){
+        DC_Sp_C <-(volume_ha*1*0.422*0.477)
+      } else if (Decay_class == "3"){
+        DC_Sp_C <-(volume_ha*1*0.299*0.481)
+      } else if (Decay_class == "4"){
+        DC_Sp_C <-(volume_ha*0.8*0.16*0.474)
+      } else if (Decay_class == "5"){
+        DC_Sp_C <-(volume_ha*0.412*0.11*0.473)
+      }
+    } else if (Species == "Ep"){
     if (Decay_class == "1"){
       DC_Sp_C <-(volume_ha*1*0.469*0.478)
       } else if (Decay_class == "2"){
@@ -76,20 +95,80 @@ cwdCarbonFN <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
       } else if (Decay_class == "5"){
       DC_Sp_C <-(volume_ha*0.412*0.11*0.473)
       }
-  } else if (Species == "Dr"){
-    if (Decay_class == "1"){
-      DC_Sp_C <-(volume_ha*1*0.386*0.478)
-    } else if (Decay_class == "2"){
-      DC_Sp_C <-(volume_ha*1*0.326*0.477)
-    } else if (Decay_class == "3"){
-      DC_Sp_C <-(volume_ha*1*0.197*0.481)
-    } else if (Decay_class == "4"){
-      DC_Sp_C <-(volume_ha*0.8*0.108*0.474)
-    } else if (Decay_class == "5"){
-      DC_Sp_C <-(volume_ha*0.412*0.117*0.473)
-    }
-  } else if (Species == "UC"){
-    if(BECzone == "ICH"){
+    } else if (Species == "Dr"){
+      if (Decay_class == "1"){
+        DC_Sp_C <-(volume_ha*1*0.386*0.478)
+      } else if (Decay_class == "2"){
+        DC_Sp_C <-(volume_ha*1*0.326*0.477)
+      } else if (Decay_class == "3"){
+        DC_Sp_C <-(volume_ha*1*0.197*0.481)
+      } else if (Decay_class == "4"){
+        DC_Sp_C <-(volume_ha*0.8*0.108*0.474)
+      } else if (Decay_class == "5"){
+        DC_Sp_C <-(volume_ha*0.412*0.117*0.473)
+      }
+    }else if (Species == "Ba"){
+      if (Decay_class == "1"){
+        DC_Sp_C <-(volume_ha*1*0.36*0.487)
+      } else if (Decay_class == "2"){
+        DC_Sp_C <-(volume_ha*1*0.332*0.485)
+      } else if (Decay_class == "3"){
+        DC_Sp_C <-(volume_ha*1*0.212*0.505)
+      } else if (Decay_class == "4"){
+        DC_Sp_C <-(volume_ha*0.8*0.142*0.521)
+      } else if (Decay_class == "5"){
+        DC_Sp_C <-(volume_ha*0.412*0.106*0.535)
+      }
+    } else if (Species == "Hw"){
+      if (Decay_class == "1"){
+        DC_Sp_C <-(volume_ha*1*0.399*0.484)
+      } else if (Decay_class == "2"){
+        DC_Sp_C <-(volume_ha*1*0.346*0.498)
+      } else if (Decay_class == "3"){
+        DC_Sp_C <-(volume_ha*1*0.258*0.515)
+      } else if (Decay_class == "4"){
+        DC_Sp_C <-(volume_ha*0.8*0.166*0.534)
+      } else if (Decay_class == "5"){
+        DC_Sp_C <-(volume_ha*0.412*0.108*0.57)
+      }
+    } else if (Species == "Cw"){
+      if (Decay_class == "1"){
+        DC_Sp_C <-(volume_ha*1*0.318*0.496)
+      } else if (Decay_class == "2"){
+        DC_Sp_C <-(volume_ha*1*0.259*0.498)
+      } else if (Decay_class == "3"){
+        DC_Sp_C <-(volume_ha*1*0.248*0.505)
+      } else if (Decay_class == "4"){
+        DC_Sp_C <-(volume_ha*0.8*0.132*0.521)
+      } else if (Decay_class == "5"){
+        DC_Sp_C <-(volume_ha*0.412*0.143*0.535)
+      }
+    } else if (Species == "Fd"){
+      if (Decay_class == "1"){
+        DC_Sp_C <-(volume_ha*1*0.386*0.488)
+      } else if (Decay_class == "2"){
+        DC_Sp_C <-(volume_ha*1*0.308*0.499)
+      } else if (Decay_class == "3"){
+        DC_Sp_C <-(volume_ha*1*0.152*0.495)
+      } else if (Decay_class == "4"){
+        DC_Sp_C <-(volume_ha*0.8*0.123*0.539)
+      } else if (Decay_class == "5"){
+        DC_Sp_C <-(volume_ha*0.412*0.148*0.558)
+      }
+    } else if (Species == "Lw"){
+      if (Decay_class == "1"){
+        DC_Sp_C <-(volume_ha*1*0.381*0.496)
+      } else if (Decay_class == "2"){
+        DC_Sp_C <-(volume_ha*1*0.318*0.498)
+      } else if (Decay_class == "3"){
+        DC_Sp_C <-(volume_ha*1*0.257*0.505)
+      } else if (Decay_class == "4"){
+        DC_Sp_C <-(volume_ha*0.8*0.162*0.521)
+      } else if (Decay_class == "5"){
+        DC_Sp_C <-(volume_ha*0.412*0.143*0.535)
+      }
+    } else if (Species == "UC"){
+      if(BECzone == "ICH"){
       dc1 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Amabalis fir", "Western hemlock","Western red cedar"),
                              .(mean = mean(AbsoluteDensity)), by=DecayClass][DecayClass == 1, sum(mean)]
