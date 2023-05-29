@@ -6,6 +6,15 @@
 #' @param HT
 #' @param Tree_class
 #'
+#' @description Tree carbon (kg/tree) is calculated using Ung et al. 2008 allometric equations.
+#' Biomass is in kg.
+#' Standing dead (SD) decay class and species specific structural reduction factor is applied to each
+#' of the components of the allometric equation i.e. bark, bole, top. This accounts for the loss
+#' of biomass through decay (Domke et al. 2011). A species and decay class density reduction factor
+#' is applied, this accounts for the density loss through decay (Harmon et al. 2011).
+#' Carbon concentration is 0.5 (Harmon et al. 2013)is applied directly here, resulting in carbon in kg/tree.
+#' SDCarbon (kg) = BIOMASS x SRF x DCRF x Cconc
+#' SDCarbon (kg) = ((Ywood*SRF) + (Ybark*SRF) + (Yfoliage*SRF) + (Ybranches*SRF)) X DCRF X Cconc
 #' @return
 #' @export
 #'
