@@ -318,28 +318,6 @@ cwdCarbonCalc <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
 
 
 #' Title
-#' @param VolGrid the table of volumes from SORTIE
-#' @param speciesGroupings data.frame of species and groups
-#' @param SizeClassCut cutoff between small and large logs (20 right now)
-#'
-#' @return
-#' @export
-#'
-#' @examples
-cwdCfromSORTIE <- function(VolGrid,speciesGroupings, SizeClassCut){
-
-  #Species, SpGroup
-  # then this function would use that dataframe to calculate group densities from the conversion table
-
-  #need the density conversion table - for groupings here, and unknown above
-
-
-
-
-}
-
-
-#' Title
 #'
 #' @param Diam_class
 #' @param volume
