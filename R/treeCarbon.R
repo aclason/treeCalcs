@@ -18,6 +18,11 @@
 #' @return
 #' @export
 #'
+#' @details
+#' M. Ventner used a 0.95 reduction factor across all decay classes, so would need to add a parameter
+#' that allows users to modify that. It's not ideal.
+#' make this into a succint table
+#'
 #' @examples
 TreeCarbonFN <- function(Species,DBH,HT,Tree_class){
   if(is.na(Species)){

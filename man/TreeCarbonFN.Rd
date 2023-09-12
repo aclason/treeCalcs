@@ -20,3 +20,7 @@ Carbon concentration is 0.5 (Harmon et al. 2013)is applied directly here, result
 SDCarbon (kg) = BIOMASS x SRF x DCRF x Cconc
 SDCarbon (kg) = ((Ywood\emph{SRF) + (Ybark}SRF) + (Yfoliage\emph{SRF) + (Ybranches}SRF)) X DCRF X Cconc
 }
+\details{
+M. Ventner used a 0.95 reduction factor across all decay classes, so would need to add a parameter
+that allows users to modify that. It's not ideal.
+}

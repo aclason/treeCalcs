@@ -85,9 +85,177 @@ if(BECzone == "SBS"){
       HT <- 1.35 + (39.48 - 1.35)*(1 - exp(-(0.0299)*DBH))
     } else if(Species == "Cw"){
       HT <- 1.35 + (39.54 - 1.35)*(1 - exp(-(0.0241)*DBH))
+    } else if(Species == "UC"){
+      HT <- 1.35 + (39.48 - 1.35)*(1 - exp(-(0.0299)*DBH))
+    }else if(Species == "U"){ #use hemlock?
+      HT <- 1.35 + (39.48 - 1.35)*(1 - exp(-(0.0299)*DBH))
     }
+
   }
 
   return(HT)
 }
+
+#' Diam-height function residuals
+#'
+#' @param Species
+#' @param DBH
+#' @param BECzone
+#'
+#' @return
+#' @export
+#'
+#' @examples
+DiamHgt_Residuals <- function(Species, DBH, BECzone = "ICH"){
+  if(BECzone == "SBS") {
+    #no change
+    if (is.na(Species)) {
+      print(paste("Species is not found"))
+      HT <- NA
+    } else if (Species == "Sx") {
+      HT <- 1.35 + (35.0 - 1.35) * (1 - exp(-(0.0299364) * DBH))
+    } else if (Species == "Pl") {
+      HT <- 1.35 + (23.346836 - 1.35) * (1 - exp(-(0.070728) * DBH))
+    } else if (Species == "Bl") {
+      HT <- 1.35 + (30.0 - 1.35) * (1 - exp(-(0.0305068) * DBH))
+    } else if (Species == "Ba") {
+      HT <-
+        1.35 + (30.0 - 1.35) * (1 - exp(-(0.0263) * DBH)) #slope from ICH file, height same as At
+    } else if (Species == "At") {
+      HT <- 1.35 + (33.53 - 1.35) * (1 - exp(-(0.03746) * DBH))
+    } else if (Species == "Lw") {
+      HT <- 1.35 + (35.0 - 1.35) * (1 - exp(-(0.0299364) * DBH)) #using Sx
+    } else if (Species == "Fd") {
+      HT <- 1.35 + (35.0 - 1.35) * (1 - exp(-(0.0299364) * DBH)) #using Sx
+    } else if (Species == "Ac") {
+      HT <- 1.35 + (33.53 - 1.35) * (1 - exp(-(0.03746) * DBH)) #using Ac
+    } else if (Species == "Ep") {
+      HT <- 1.35 + (33.53 - 1.35) * (1 - exp(-(0.0454) * DBH)) #slope from ICH file, height same as At
+    }
+
+
+  } else if (BECzone == "ICH") {
+    if (is.na(Species)) {
+      print(paste("Species is not found"))
+      HT <- NA
+    } else if (Species == "Ac") {
+      #no change
+      HT <- 1.35 + (39.47465 - 1.35) * (1 - exp(-0.03472 * DBH))
+    } else if (Species == "At") {
+      #no change
+      HT <- 1.35 + (39.14183 - 1.35) * (1 - exp(-0.03517 * DBH))
+    } else if (Species == "Ba") {
+      #new beta
+      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.02556 * DBH))
+    } else if (Species == "Bl") {
+      #new beta
+      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.034117 * DBH))
+    } else if (Species == "Cw") {
+      #new beta
+      HT <- 1.35 + (39.5376 - 1.35) * (1 - exp(-0.02345 * DBH))
+    } else if (Species == "Ep") {
+      #no change
+      HT <- 1.35 + (33.18361 - 1.35) * (1 - exp(-0.04543 * DBH))
+    } else if (Species == "Hw") {
+      #new beta and new MaxHt
+      HT <- 1.35 + (47.4 - 1.35) * (1 - exp(-0.02247587 * DBH))
+    } else if (Species == "U") {
+      #new beta and new MaxHt
+      HT <- 1.35 + (47.4 - 1.35) * (1 - exp(-0.02247587 * DBH))
+    } else if (Species == "UC") {
+      #new beta and new MaxHt
+      HT <- 1.35 + (47.4 - 1.35) * (1 - exp(-0.02247587 * DBH))
+    } else if (Species == "Pl") {
+      #new beta
+      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.045657 * DBH))
+    } else if (Species == "Sx") {
+      #new beta
+      HT <- 1.35 + (45 - 1.35) * (1 - exp(-0.03772775 * DBH))
+    }
+
+  }
+  return(HT)
+}
+
+
+#' Diam - height function in clearcuts (high light)
+#'
+#' @param Species
+#' @param DBH
+#' @param BECzone
+#'
+#' @return
+#' @export
+#'
+#' @examples
+DiamHgt_Plantations <- function(Species, DBH, BECzone = "ICH"){
+  if(BECzone == "SBS"){
+    if(is.na(Species)){
+      print(paste("Species is not found"))
+      HT <- NA
+    } else if(Species == "Sx"){
+      HT <- 1.35 + (35.0 - 1.35)*(1 - exp(-(0.0299364)*DBH))
+    } else if(Species == "Pl"){
+      HT <- 1.35 + (23.346836 - 1.35)*(1 - exp(-(0.070728)*DBH))
+    } else if(Species == "Bl"){
+      HT <- 1.35 + (30.0 - 1.35)*(1 - exp(-(0.0305068)*DBH))
+    } else if(Species == "Ba"){
+      HT <- 1.35 + (30.0 - 1.35)*(1 - exp(-(0.0263)*DBH)) #slope from ICH file, height same as At
+    } else if(Species == "At"){
+      HT <- 1.35 + (33.53 - 1.35)*(1 - exp(-(0.03746)*DBH))
+    } else if(Species == "Lw"){
+      HT <- 1.35 + (35.0 - 1.35)*(1 - exp(-(0.0299364)*DBH)) #using Sx
+    } else if(Species == "Fd"){
+      HT <- 1.35 + (35.0 - 1.35)*(1 - exp(-(0.0299364)*DBH)) #using Sx
+    } else if(Species == "Ac"){
+      HT <- 1.35 + (33.53 - 1.35)*(1 - exp(-(0.03746)*DBH)) #using Ac
+    } else if(Species == "Ep"){
+      HT <- 1.35 + (33.53 - 1.35)*(1 - exp(-(0.0454)*DBH)) #slope from ICH file, height same as At
+    }
+
+
+  } else if (BECzone == "ICH") {
+    if (is.na(Species)) {
+      print(paste("Species is not found"))
+      HT <- NA
+    } else if (Species == "Ac") {
+      #no change
+      HT <- 1.35 + (39.47465 - 1.35) * (1 - exp(-0.03472 * DBH))
+    } else if (Species == "At") {
+      #no change
+      HT <- 1.35 + (39.14183 - 1.35) * (1 - exp(-0.03517 * DBH))
+    } else if (Species == "Ba") {
+      #new beta
+      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.02556 * DBH))
+    } else if (Species == "Bl") {
+      #new beta
+      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.034117 * DBH))
+    } else if (Species == "Cw") {
+      #new beta
+      HT <- 1.35 + (39.5376 - 1.35) * (1 - exp(-0.02345 * DBH))
+    } else if (Species == "Ep") {
+      #no change
+      HT <- 1.35 + (33.18361 - 1.35) * (1 - exp(-0.04543 * DBH))
+    } else if (Species == "Hw") {
+      #new beta and new MaxHt
+      HT <- 1.35 + (47.4 - 1.35) * (1 - exp(-0.02247587 * DBH))
+    } else if (Species == "U") {
+      #new beta and new MaxHt
+      HT <- 1.35 + (47.4 - 1.35) * (1 - exp(-0.02247587 * DBH))
+    } else if (Species == "UC") {
+      #new beta and new MaxHt
+      HT <- 1.35 + (47.4 - 1.35) * (1 - exp(-0.02247587 * DBH))
+    } else if (Species == "Pl") {
+      #new beta
+      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.045657 * DBH))
+    } else if (Species == "Sx") {
+      #new beta
+      HT <- 1.35 + (45 - 1.35) * (1 - exp(-0.03772775 * DBH))
+    }
+
+  }
+
+  return(HT)
+}
+
 
