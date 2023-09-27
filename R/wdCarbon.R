@@ -19,7 +19,7 @@
 #' x Absolute density(g/cm3) (species and decay class specific (Harmon et al. 2008))
 #' x CarbonConcentration (species and decay class specific (Harmon et al. 2013))
 #' @examples
-cwdCarbonCalc <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
+calc_cwd_c <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
   if(is.na(Species)){
     print(paste("Species is not found"))
     DC_Sp_C <- NA
@@ -317,7 +317,7 @@ cwdCarbonCalc <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
 
 
 
-#' Title
+#' Calculate fine woody debris carbon
 #'
 #' @param Diam_class
 #' @param volume
@@ -331,7 +331,7 @@ cwdCarbonCalc <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
 #' @export
 #'
 #' @examples
-fwdCarbonFN <- function(Diam_class, volume){
+calc_fwd_c <- function(Diam_class, volume){
   if(is.na(Diam_class)){
     print(paste("Diam_class is not found"))
     C <- NA

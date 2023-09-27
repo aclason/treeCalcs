@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-Min_SOC <- function(Soc, BD, depth, CoarseFrags){
+calc_min_soil_c <- function(Soc, BD, depth, CoarseFrags){
   Min_SOC <- Soc * BD * depth * (1- CoarseFrags)
   return(Min_SOC)
 }

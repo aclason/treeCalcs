@@ -8,6 +8,6 @@
 #' @export
 #'
 #' @examples
-calcBA <- function(DBH) {
+calc_BA <- function(DBH) {
   pi*(DBH/200)^2
 }

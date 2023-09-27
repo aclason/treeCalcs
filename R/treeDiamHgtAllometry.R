@@ -37,7 +37,7 @@
 #' "Subalpine_Fir" 30.0, "Trembling_Aspen" 33.53
 #'
 #' @examples
-DiamHgtFN <- function(Species, DBH, BECzone = "SBS"){
+height_dbh <- function(Species, DBH, BECzone = "SBS"){
 if(BECzone == "SBS"){
   if(is.na(Species)){
     print(paste("Species is not found"))
@@ -106,7 +106,7 @@ if(BECzone == "SBS"){
 #' @export
 #'
 #' @examples
-DiamHgt_Residuals <- function(Species, DBH, BECzone = "ICH"){
+height_dbh_Residuals <- function(Species, DBH, BECzone = "ICH"){
   if(BECzone == "SBS") {
     #no change
     if (is.na(Species)) {
@@ -188,7 +188,7 @@ DiamHgt_Residuals <- function(Species, DBH, BECzone = "ICH"){
 #' @export
 #'
 #' @examples
-DiamHgt_Plantations <- function(Species, DBH, BECzone = "ICH"){
+height_dbh_plantations <- function(Species, DBH, BECzone = "ICH"){
   if(BECzone == "SBS"){
     if(is.na(Species)){
       print(paste("Species is not found"))

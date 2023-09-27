@@ -1,5 +1,5 @@
 
-#' Title
+#' Calculate tree carbon
 #'
 #' @param Species
 #' @param DBH
@@ -24,7 +24,7 @@
 #' make this into a succint table
 #'
 #' @examples
-TreeCarbonFN <- function(Species,DBH,HT,Tree_class){
+calc_tree_c <- function(Species,DBH,HT,Tree_class){
   if(is.na(Species)){
     print(paste("Species is not found"))
     Sp_C <- NA
