@@ -17,7 +17,7 @@
 #' @details merchantable timber volumber (m^3) = e^b0 x DBH^b1 x HT^b2
 #'  where b0, b1, b2 are model parameters from North et al. 2016 Total and merchantable volume equations for common tree species in BC
 #' @examples
-TreeMerchVolFN <- function(Species, DBH, HT, BECzone="SBS"){
+calc_merch_vol <- function(Species, DBH, HT, BECzone="SBS"){
   if(is.na(Species)){
     print(paste("Species is not found"))
     Sp_MV <- NA

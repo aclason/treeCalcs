@@ -1,0 +1,109 @@
+﻿Species,CommonName,BCname,BECzone,DecayClass,AbsoluteDensity,RelativeDensity,StructuralReductionFactor,CarbonConversionFactor
+Abies lasiocarpa,Subalpine fir,Bl,NA,0,0.31,0.31,NA,0.493
+Abies lasiocarpa,Subalpine fir,Bl,NA,1,0.371,1,1,0.498
+Abies lasiocarpa,Subalpine fir,Bl,NA,2,0.288,0.929,1,0.501
+Abies lasiocarpa,Subalpine fir,Bl,NA,3,0.233,0.752,1,0.498
+Abies lasiocarpa,Subalpine fir,Bl,NA,4,0.152,0.49,0.8,0.501
+Abies lasiocarpa,Subalpine fir,Bl,NA,5,0.117,0.011,0.412,0.521
+Picea glauca,White spruce,Sw,NA,0,0.37,0.37,NA,0.493
+Picea glauca,White spruce,Sw,NA,1,0.393,0.998,1,0.496
+Picea glauca,White spruce,Sw,NA,2,0.312,0.858,1,0.498
+Picea glauca,White spruce,Sw,NA,3,0.28,0.745,1,0.505
+Picea glauca,White spruce,Sw,NA,4,0.155,0.426,0.8,0.527
+Picea glauca,White spruce,Sw,NA,5,0.129,0.347,0.412,0.535
+Picea engelmannii,Engelmann spruce,Se,NA,0,0.33,0.33,NA,0.493
+Picea engelmannii,Engelmann spruce,Se,NA,1,0.393,0.916,1,0.496
+Picea engelmannii,Engelmann spruce,Se,NA,2,0.258,0.782,1,0.498
+Picea engelmannii,Engelmann spruce,Se,NA,3,0.28,0.745,1,0.505
+Picea engelmannii,Engelmann spruce,Se,NA,4,0.117,0.355,0.8,0.521
+Picea engelmannii,Engelmann spruce,Se,NA,5,0.129,0.347,0.412,0.535
+Picea engelmannii x glauca,Hybrid spruce,Sx,NA,0,0.35,0.35,NA,0.493
+Picea engelmannii x glauca,Hybrid spruce,Sx,NA,1,0.393,0.957,1,0.496
+Picea engelmannii x glauca,Hybrid spruce,Sx,NA,2,0.285,0.82,1,0.498
+Picea engelmannii x glauca,Hybrid spruce,Sx,NA,3,0.28,0.745,1,0.505
+Picea engelmannii x glauca,Hybrid spruce,Sx,NA,4,0.136,0.3905,0.8,0.521
+Picea engelmannii x glauca,Hybrid spruce,Sx,NA,5,0.129,0.347,0.412,0.535
+Pinus contorta,Lodgepole pine,Pl,NA,0,0.38,0.38,NA,0.493
+Pinus contorta,Lodgepole pine,Pl,NA,1,0.378,0.977,1,0.497
+Pinus contorta,Lodgepole pine,Pl,NA,2,0.367,0.956,1,0.496
+Pinus contorta,Lodgepole pine,Pl,NA,3,0.276,0.809,1,0.499
+Pinus contorta,Lodgepole pine,Pl,NA,4,0.169,0.512,0.8,0.519
+Pinus contorta,Lodgepole pine,Pl,NA,5,0.164,0.432,0.412,0.526
+Betula papyrifera,Paper birch,Ep,NA,0,0.48,0.48,NA,0.472
+Betula papyrifera,Paper birch,Ep,NA,1,0.469,0.977,1,0.478
+Betula papyrifera,Paper birch,Ep,NA,2,0.403,0.66,1,0.477
+Betula papyrifera,Paper birch,Ep,NA,3,0.352,0.733,1,0.481
+Betula papyrifera,Paper birch,Ep,NA,4,0.17,0.309,0.8,0.474
+Betula papyrifera,Paper birch,Ep,NA,5,0.11,0.2,0.412,0.473
+Populus tremuloides,Trembling aspen,At,NA,0,0.35,0.35,NA,0.472
+Populus tremuloides,Trembling aspen,At,NA,1,0.353,0.967,1,0.488
+Populus tremuloides,Trembling aspen,At,NA,2,0.422,0.734,1,0.489
+Populus tremuloides,Trembling aspen,At,NA,3,0.299,0.819,1,0.495
+Populus tremuloides,Trembling aspen,At,NA,4,0.16,0.432,0.8,0.465
+Populus tremuloides,Trembling aspen,At,NA,5,0.11,0.297,0.412,0.473
+Populus balsamifera,Black cottonwood,Ac,NA,0,0.31,0.31,NA,0.472
+Populus balsamifera,Black cottonwood,Ac,NA,1,0.353,0.967,1,0.478
+Populus balsamifera,Black cottonwood,Ac,NA,2,0.422,0.734,1,0.477
+Populus balsamifera,Black cottonwood,Ac,NA,3,0.299,0.819,1,0.481
+Populus balsamifera,Black cottonwood,Ac,NA,4,0.16,0.432,0.8,0.474
+Populus balsamifera,Black cottonwood,Ac,NA,5,0.11,0.297,0.412,0.473
+Abies amabilis,Amabilis fir,Ba,NA,0,0.4,0.4,NA,0.485
+Abies amabilis,Amabilis fir,Ba,NA,1,0.36,0.9,1,0.487
+Abies amabilis,Amabilis fir,Ba,NA,2,0.332,0.83,1,0.485
+Abies amabilis,Amabilis fir,Ba,NA,3,0.212,0.604,1,0.505
+Abies amabilis,Amabilis fir,Ba,NA,4,0.142,0.404,0.8,0.521
+Abies amabilis,Amabilis fir,Ba,NA,5,0.106,0.309,0.412,0.535
+Tsuga heterophylla,Western hemlock,Hw,NA,0,0.42,0.42,NA,0.486
+Tsuga heterophylla,Western hemlock,Hw,NA,1,0.399,0.89,1,0.484
+Tsuga heterophylla,Western hemlock,Hw,NA,2,0.346,0.767,1,0.498
+Tsuga heterophylla,Western hemlock,Hw,NA,3,0.258,0.636,1,0.515
+Tsuga heterophylla,Western hemlock,Hw,NA,4,0.166,0.425,0.8,0.534
+Tsuga heterophylla,Western hemlock,Hw,NA,5,0.108,0.332,0.412,0.57
+Thuja plicata,Western red cedar,Cw,NA,0,0.31,0.31,NA,0.493
+Thuja plicata,Western red cedar,Cw,NA,1,0.318,1,1,0.496
+Thuja plicata,Western red cedar,Cw,NA,2,0.259,0.835,1,0.498
+Thuja plicata,Western red cedar,Cw,NA,3,0.248,0.8,1,0.505
+Thuja plicata,Western red cedar,Cw,NA,4,0.132,0.462,0.8,0.521
+Thuja plicata,Western red cedar,Cw,NA,5,0.143,0.461,0.412,0.535
+Pseudotsuga menziesii,Douglas fir,Fd,NA,0,0.45,0.45,NA,0.489
+Pseudotsuga menziesii,Douglas fir,Fd,NA,1,0.386,0.858,1,0.488
+Pseudotsuga menziesii,Douglas fir,Fd,NA,2,0.308,0.723,1,0.499
+Pseudotsuga menziesii,Douglas fir,Fd,NA,3,0.152,0.444,1,0.495
+Pseudotsuga menziesii,Douglas fir,Fd,NA,4,0.123,0.305,0.8,0.539
+Pseudotsuga menziesii,Douglas fir,Fd,NA,5,0.148,0.329,0.412,0.558
+Larix occidentalis,Western larch,Lw,NA,0,0.48,0.48,NA,0.493
+Larix occidentalis,Western larch,Lw,NA,1,0.381,0.956,1,0.496
+Larix occidentalis,Western larch,Lw,NA,2,0.318,0.827,1,0.498
+Larix occidentalis,Western larch,Lw,NA,3,0.257,0.678,1,0.505
+Larix occidentalis,Western larch,Lw,NA,4,0.162,0.426,0.8,0.521
+Larix occidentalis,Western larch,Lw,NA,5,0.143,0.366,0.412,0.535
+Alnus rubra,Red alder,Dr,NA,0,0.37,0.37,NA,0.481
+Alnus rubra,Red alder,Dr,NA,1,0.386,0.99,1,0.482
+Alnus rubra,Red alder,Dr,NA,2,0.326,0.836,1,0.481
+Alnus rubra,Red alder,Dr,NA,3,0.197,0.505,1,0.482
+Alnus rubra,Red alder,Dr,NA,4,0.108,0.277,0.8,0.492
+Alnus rubra,Red alder,Dr,NA,5,0.117,0.3,0.412,0.455
+Unknown,Unknown,U,SBS,0,0.3475,0.3475,NA,0.48775
+Unknown,Unknown,U,SBS,1,0.37375,0.97525,1,0.49475
+Unknown,Unknown,U,SBS,2,0.3405,0.85975,1,0.496
+Unknown,Unknown,U,SBS,3,0.272,0.78125,1,0.49925
+Unknown,Unknown,U,SBS,4,0.15425,0.456125,0.8,0.5015
+Unknown,Unknown,U,SBS,5,0.13,0.27175,0.412,0.51375
+Unknown,Unknown,UC,SBS,0,0.346666667,0.346666667,NA,0.493
+Unknown,Unknown,UC,SBS,1,0.380666667,0.978,1,0.497
+Unknown,Unknown,UC,SBS,2,0.313333333,0.901666667,1,0.498333333
+Unknown,Unknown,UC,SBS,3,0.263,0.768666667,1,0.500666667
+Unknown,Unknown,UC,SBS,4,0.152333333,0.464166667,0.8,0.513666667
+Unknown,Unknown,UC,SBS,5,0.136666667,0.263333333,0.412,0.527333333
+Unknown,Unknown,U,ICH,0,0.367777778,0.367777778,NA,0.484333333
+Unknown,Unknown,U,ICH,1,0.377111111,0.959444444,1,0.489111111
+Unknown,Unknown,U,ICH,2,0.347111111,0.807222222,1,0.491
+Unknown,Unknown,U,ICH,3,0.273,0.746333333,1,0.498222222
+Unknown,Unknown,U,ICH,4,0.154111111,0.4285,0.8,0.503333333
+Unknown,Unknown,U,ICH,5,0.121888889,0.298444444,0.412,0.515666667
+Unknown,Unknown,UC,ICH,0,0.361666667,0.361666667,NA,0.4905
+Unknown,Unknown,UC,ICH,1,0.369833333,0.954,1,0.493
+Unknown,Unknown,UC,ICH,2,0.312833333,0.856166667,1,0.496
+Unknown,Unknown,UC,ICH,3,0.251166667,0.724333333,1,0.5045
+Unknown,Unknown,UC,ICH,4,0.1495,0.44725,0.8,0.5195
+Unknown,Unknown,UC,ICH,5,0.127833333,0.315333333,0.412,0.537

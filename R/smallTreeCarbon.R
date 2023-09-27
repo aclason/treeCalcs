@@ -1,6 +1,6 @@
 
 
-#' Title
+#' calculate small tree carbon
 #'
 #' @param Species
 #' @param Height_class
@@ -11,7 +11,7 @@
 #' @export
 #'
 #' @examples
-RegenCarbonFN_Ung <- function(Species, Height_class, Diam_est, Health){ # Live_Dead - should we specify live and dead? Is it worth it?
+calc_sm_tree_c_Ung <- function(Species, Height_class, Diam_est, Health){ # Live_Dead - should we specify live and dead? Is it worth it?
   if(is.na(Species)){
     print(paste("Species is not found"))
     Reg_C2 <- NA
@@ -240,7 +240,7 @@ RegenCarbonFN_Ung <- function(Species, Height_class, Diam_est, Health){ # Live_D
 #' @export
 #'
 #' @examples
-RegenCarbonFN_Annigofer <- function(Species, Height_class){
+calc_sm_tree_c_Annigofer <- function(Species, Height_class){
   if(is.na(Species)){
     print(paste("Species is not found"))
     Reg_C1 <- NA

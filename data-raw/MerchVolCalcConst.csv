@@ -1,0 +1,21 @@
+Species,CommonName,BECzone,b0,b1,b2,
+Populus tremuloides,Trembling aspen,SBS,-10.724,1.896,1.208,
+Populus tremuloides,Trembling aspen,ICH,-10.994,1.894,1.314,
+Populus balsamifera,Black cottonwood,SBS,-10.84,1.768,1.336,
+Populus balsamifera,Black cottonwood,ICH,-10.814,1.663,1.437,
+Betula papyrifera,Paper birch,SBS,-10.798,1.943,1.177,
+Betula papyrifera,Paper birch,ICH,-10.613,1.923,1.157,
+Alnus rubra,Red alder,ICH,-10.43,1.869,1.169,*used CWH
+Abies lasiocarpa,Subalpine fir,SBS,-9.98,1.792,1.102,
+Abies lasiocarpa,Subalpine fir,ICH,-10.132,1.916,1.01,
+Abies amabilis,Amabalis fir,ICH,-9.977,1.767,1.155,*used CWH
+Thuja plicata,Western red cedar,ICH,-9.749,1.687,1.115,
+Pseudotsuga menziesii,Douglas fir,SBS,-10.503,1.724,1.296,
+Pseudotsuga menziesii,Douglas fir,ICH,-10.317,1.693,1.272,
+Tsuga heterophylla,Western hemlock,SBS,-10.245,1.828,1.139,
+Tsuga heterophylla,Western hemlock,ICH,-10.382,1.882,1.116,
+Larix occidentalis,Western larch,ICH,-10.472,1.796,1.192,*no SBS
+Pinus contorta,Lodgepole pine,SBS,-10.013,1.843,1.076,
+Pinus contorta,Lodgepole pine,ICH,-10.098,1.798,1.146,
+Picea engelmannii x glauca,Hybrid spruce,SBS,-10.28,1.769,1.206,
+Picea engelmannii x glauca,Hybrid spruce,ICH,-10.119,1.754,1.175,
