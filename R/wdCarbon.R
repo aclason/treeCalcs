@@ -317,6 +317,17 @@ calc_cwd_c <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
       dc5 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 5, sum(mean)]
+      if (Decay_class == "1"){
+        DC_Sp_C <-(volume_ha*1*dc1*0.478)
+      } else if (Decay_class == "2"){
+        DC_Sp_C <-(volume_ha*1*dc2*0.477)
+      } else if (Decay_class == "3"){
+        DC_Sp_C <-(volume_ha*1*dc3*0.481)
+      } else if (Decay_class == "4"){
+        DC_Sp_C <-(volume_ha*0.8*dc4*0.474)
+      } else if (Decay_class == "5"){
+        DC_Sp_C <-(volume_ha*0.412*dc5*0.473)
+      }
     } else {
       print("No valid BEC zome provided to calculate average unknown deciduous tree density")
     }
