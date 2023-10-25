@@ -1,12 +1,14 @@
 # April 2022
-# By: Leah Walker
+# By: Alana Clason & Leah Walker
 
 #' Diameter-Height functions
 #'
 #' @param Species
 #' @param DBH
+#' @param BECzone only ICH and SBS supported
 #' @description  The "standard" diameter-height relationship from SORTIE.
-#' The parameter values were extracted from the SBS and ICH parameter files
+#' The parameter values are from the SBS and ICH SORTIE parameter files and can only
+#' be applied to those BECzones
 #' @return
 #' @export
 #'
@@ -35,6 +37,11 @@
 #' Canopy tree height:
 #' "Interior_Spruce" 35.0, "Lodgepole_Pine" 23.346836,
 #' "Subalpine_Fir" 30.0, "Trembling_Aspen" 33.53
+#'
+#' if trees are growing in a high light environment (clearcut) in the ICH, please see
+#' height_dbh_plantations function instead. If estimating allometry on residual trees (e.g
+#' remaining after a partial harvest), please see height_dbh_residual function. Both of these
+#' functions only apply to the ICH.
 #'
 #' @examples
 height_dbh <- function(Species, DBH, BECzone = "SBS"){
@@ -100,38 +107,23 @@ if(BECzone == "SBS"){
 #'
 #' @param Species
 #' @param DBH
-#' @param BECzone
+#' @param BECzone only ICH supported
 #'
 #' @return
 #' @export
 #'
+#' @details
+#' estimating allometry on residual trees (e.g  those that remain after a partial harvest)
+#' if trees are growing in a high light environment (clearcut) in the ICH, please see
+#' height_dbh_plantations function instead. Both of these
+#' functions only apply to the ICH.
+#'
+#'
 #' @examples
 height_dbh_Residuals <- function(Species, DBH, BECzone = "ICH"){
-  if(BECzone == "SBS") {
+  if(BECzone != "ICH") {
     #no change
-    if (is.na(Species)) {
-      print(paste("Species is not found"))
-      HT <- NA
-    } else if (Species == "Sx") {
-      HT <- 1.35 + (35.0 - 1.35) * (1 - exp(-(0.0299364) * DBH))
-    } else if (Species == "Pl") {
-      HT <- 1.35 + (23.346836 - 1.35) * (1 - exp(-(0.070728) * DBH))
-    } else if (Species == "Bl") {
-      HT <- 1.35 + (30.0 - 1.35) * (1 - exp(-(0.0305068) * DBH))
-    } else if (Species == "Ba") {
-      HT <-
-        1.35 + (30.0 - 1.35) * (1 - exp(-(0.0263) * DBH)) #slope from ICH file, height same as At
-    } else if (Species == "At") {
-      HT <- 1.35 + (33.53 - 1.35) * (1 - exp(-(0.03746) * DBH))
-    } else if (Species == "Lw") {
-      HT <- 1.35 + (35.0 - 1.35) * (1 - exp(-(0.0299364) * DBH)) #using Sx
-    } else if (Species == "Fd") {
-      HT <- 1.35 + (35.0 - 1.35) * (1 - exp(-(0.0299364) * DBH)) #using Sx
-    } else if (Species == "Ac") {
-      HT <- 1.35 + (33.53 - 1.35) * (1 - exp(-(0.03746) * DBH)) #using Ac
-    } else if (Species == "Ep") {
-      HT <- 1.35 + (33.53 - 1.35) * (1 - exp(-(0.0454) * DBH)) #slope from ICH file, height same as At
-    }
+    print("we don't have allometry estimates for residual trees outside the ICH")
 
 
   } else if (BECzone == "ICH") {
@@ -182,37 +174,21 @@ height_dbh_Residuals <- function(Species, DBH, BECzone = "ICH"){
 #'
 #' @param Species
 #' @param DBH
-#' @param BECzone
+#' @param BECzone only ICH supported
 #'
 #' @return
 #' @export
 #'
+#' @details
+#' estimating allometry in a high light environment (clearcut). If estimating residual trees
+#' (e.g  those that remain after a partial harvest) please see
+#' height_dbh_residual function instead. Both of these
+#' functions only apply to the ICH.
+#'
 #' @examples
 height_dbh_plantations <- function(Species, DBH, BECzone = "ICH"){
-  if(BECzone == "SBS"){
-    if(is.na(Species)){
-      print(paste("Species is not found"))
-      HT <- NA
-    } else if(Species == "Sx"){
-      HT <- 1.35 + (35.0 - 1.35)*(1 - exp(-(0.0299364)*DBH))
-    } else if(Species == "Pl"){
-      HT <- 1.35 + (23.346836 - 1.35)*(1 - exp(-(0.070728)*DBH))
-    } else if(Species == "Bl"){
-      HT <- 1.35 + (30.0 - 1.35)*(1 - exp(-(0.0305068)*DBH))
-    } else if(Species == "Ba"){
-      HT <- 1.35 + (30.0 - 1.35)*(1 - exp(-(0.0263)*DBH)) #slope from ICH file, height same as At
-    } else if(Species == "At"){
-      HT <- 1.35 + (33.53 - 1.35)*(1 - exp(-(0.03746)*DBH))
-    } else if(Species == "Lw"){
-      HT <- 1.35 + (35.0 - 1.35)*(1 - exp(-(0.0299364)*DBH)) #using Sx
-    } else if(Species == "Fd"){
-      HT <- 1.35 + (35.0 - 1.35)*(1 - exp(-(0.0299364)*DBH)) #using Sx
-    } else if(Species == "Ac"){
-      HT <- 1.35 + (33.53 - 1.35)*(1 - exp(-(0.03746)*DBH)) #using Ac
-    } else if(Species == "Ep"){
-      HT <- 1.35 + (33.53 - 1.35)*(1 - exp(-(0.0454)*DBH)) #slope from ICH file, height same as At
-    }
-
+  if(BECzone != "ICH"){
+    print("we don't have allometry estimates for plantations outside the ICH")
 
   } else if (BECzone == "ICH") {
     if (is.na(Species)) {
@@ -229,28 +205,28 @@ height_dbh_plantations <- function(Species, DBH, BECzone = "ICH"){
       HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.02556 * DBH))
     } else if (Species == "Bl") {
       #new beta
-      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.034117 * DBH))
+      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.002278 * DBH))
     } else if (Species == "Cw") {
       #new beta
-      HT <- 1.35 + (39.5376 - 1.35) * (1 - exp(-0.02345 * DBH))
+      HT <- 1.35 + (39.5376 - 1.35) * (1 - exp(-0.020057 * DBH))
     } else if (Species == "Ep") {
       #no change
       HT <- 1.35 + (33.18361 - 1.35) * (1 - exp(-0.04543 * DBH))
     } else if (Species == "Hw") {
       #new beta and new MaxHt
-      HT <- 1.35 + (47.4 - 1.35) * (1 - exp(-0.02247587 * DBH))
+      HT <- 1.35 + (39.476 - 1.35) * (1 - exp(-0.02287842 * DBH))
     } else if (Species == "U") {
       #new beta and new MaxHt
-      HT <- 1.35 + (47.4 - 1.35) * (1 - exp(-0.02247587 * DBH))
+      HT <- 1.35 + (39.476 - 1.35) * (1 - exp(-0.02287842 * DBH))
     } else if (Species == "UC") {
       #new beta and new MaxHt
-      HT <- 1.35 + (47.4 - 1.35) * (1 - exp(-0.02247587 * DBH))
+      HT <- 1.35 + (39.476 - 1.35) * (1 - exp(-0.02287842 * DBH))
     } else if (Species == "Pl") {
       #new beta
-      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.045657 * DBH))
+      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.02595324 * DBH))
     } else if (Species == "Sx") {
       #new beta
-      HT <- 1.35 + (45 - 1.35) * (1 - exp(-0.03772775 * DBH))
+      HT <- 1.35 + (45 - 1.35) * (1 - exp(-0.01795447 * DBH))
     }
 
   }
