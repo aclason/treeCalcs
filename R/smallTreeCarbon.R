@@ -62,10 +62,10 @@ calc_sm_tree_c_Ung <- function(Species, Height_class, Diam_est, Health){ # Live_
       }
     } else if (Height_class == "31-130"){
       if(Health=="L"){
-        Reg_C1 <- ((0.0188*Diam_est^1.3376*0.80^1.5293)+(0.0002*Diam_est^2.4369*0.80^1.1315)+
+        Reg_C2 <- ((0.0188*Diam_est^1.3376*0.80^1.5293)+(0.0002*Diam_est^2.4369*0.80^1.1315)+
                      (0.0611*Diam_est^1.9208)+(0.1097*Diam_est^1.5530))*0.5
       } else if(Health=="D"){
-        Reg_C1 <- ((0.0188*Diam_est^1.3376*0.80^1.5293)+(0.0002*Diam_est^2.4369*0.80^1.1315)+
+        Reg_C2 <- ((0.0188*Diam_est^1.3376*0.80^1.5293)+(0.0002*Diam_est^2.4369*0.80^1.1315)+
                      (0.0611*Diam_est^1.9208)+(0.1097*Diam_est^1.5530))*0.5*0.95
       }
     }
