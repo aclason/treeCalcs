@@ -1,5 +1,6 @@
 
 #' Coarse Woody Debris Carbon
+#'
 #' @description This function calculates the amount of carbon in a piece or plot of coarse woody debris based
 #' on the species and decay class. Data is passed to the function by species and decay class. The function will
 #' estimate the carbon of unknown species based on the BEC zone (currently SBS or ICH only, default is set to SBS).

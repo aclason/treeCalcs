@@ -7,8 +7,14 @@
 height_dbh_plantations(Species, DBH, BECzone = "ICH")
 }
 \arguments{
-\item{BECzone}{}
+\item{BECzone}{only ICH supported}
 }
 \description{
 Diam - height function in clearcuts (high light)
+}
+\details{
+estimating allometry in a high light environment (clearcut). If estimating residual trees
+(e.g  those that remain after a partial harvest) please see
+height_dbh_residual function instead. Both of these
+functions only apply to the ICH.
 }

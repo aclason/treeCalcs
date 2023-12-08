@@ -6,9 +6,13 @@
 \usage{
 height_dbh(Species, DBH, BECzone = "SBS")
 }
+\arguments{
+\item{BECzone}{only ICH and SBS supported}
+}
 \description{
 The "standard" diameter-height relationship from SORTIE.
-The parameter values were extracted from the SBS and ICH parameter files
+The parameter values are from the SBS and ICH SORTIE parameter files and can only
+be applied to those BECzones
 }
 \details{
 allometry varies with environment, so we use the paramter estimates
@@ -36,4 +40,9 @@ From the SBS parameter file:
 Canopy tree height:
 "Interior_Spruce" 35.0, "Lodgepole_Pine" 23.346836,
 "Subalpine_Fir" 30.0, "Trembling_Aspen" 33.53
+
+if trees are growing in a high light environment (clearcut) in the ICH, please see
+height_dbh_plantations function instead. If estimating allometry on residual trees (e.g
+remaining after a partial harvest), please see height_dbh_residual function. Both of these
+functions only apply to the ICH.
 }

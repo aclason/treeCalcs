@@ -169,6 +169,22 @@ height_dbh_Residuals <- function(Species, DBH, BECzone = "ICH"){
   return(HT)
 }
 
+#' Summit Lake Diameter-Height relationships
+#'
+#' @param DBH
+#'
+#' @return
+#' @export
+#'
+#' @examples
+diam_hgt_summitLake <- function(DBH){
+
+  exp(HT) <- log(1.33374) + 0.9088*log(DBH)
+
+
+}
+
+
 
 #' Diam - height function in clearcuts (high light)
 #'

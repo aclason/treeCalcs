@@ -10,8 +10,11 @@
 #' @return
 #' @export
 #'
+#' @details
+#' Live_Dead - should we specify live and dead? Is it worth it?
+#'
 #' @examples
-calc_sm_tree_c_Ung <- function(Species, Height_class, Diam_est, Health){ # Live_Dead - should we specify live and dead? Is it worth it?
+calc_sm_tree_c_Ung <- function(Species, Height_class, Diam_est, Health){
   if(is.na(Species)){
     print(paste("Species is not found"))
     Reg_C2 <- NA
@@ -231,7 +234,7 @@ calc_sm_tree_c_Ung <- function(Species, Height_class, Diam_est, Health){ # Live_
 # B1 and B2 = fitted coefficients from Annigofer et al. (2016)
 # *0.5 for carbon concentration
 
-#' Title
+#' Small tree Annigofer equations
 #'
 #' @param Species
 #' @param Height_class
