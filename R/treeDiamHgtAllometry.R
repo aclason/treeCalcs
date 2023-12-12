@@ -202,10 +202,10 @@ height_dbh_plantations <- function(Species, DBH, BECzone = "ICH"){
       HT <- 1.35 + (39.14183 - 1.35) * (1 - exp(-0.03517 * DBH))
     } else if (Species == "Ba") {
       #new beta
-      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.02556 * DBH))
+      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.02634 * DBH))
     } else if (Species == "Bl") {
       #new beta
-      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.002278 * DBH))
+      HT <- 1.35 + (40 - 1.35) * (1 - exp(-0.02278 * DBH))
     } else if (Species == "Cw") {
       #new beta
       HT <- 1.35 + (39.5376 - 1.35) * (1 - exp(-0.020057 * DBH))
