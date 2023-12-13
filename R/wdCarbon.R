@@ -170,19 +170,19 @@ calc_cwd_c <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
       }
     } else if (Species == "UC"){
       if(BECzone == "ICH"){
-      dc1 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc1 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Amabalis fir", "Western hemlock","Western red cedar"),
                              .(mean = mean(AbsoluteDensity)), by=DecayClass][DecayClass == 1, sum(mean)]
-      dc2 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc2 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Amabalis fir", "Western hemlock","Western red cedar"),
                              .(mean = mean(AbsoluteDensity)), by=DecayClass][DecayClass == 2, sum(mean)]
-      dc3 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc3 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Amabalis fir", "Western hemlock","Western red cedar"),
                              .(mean = mean(AbsoluteDensity)), by=DecayClass][DecayClass == 3, sum(mean)]
-      dc4 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc4 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Amabalis fir", "Western hemlock","Western red cedar"),
                              .(mean = mean(AbsoluteDensity)), by=DecayClass][DecayClass == 4, sum(mean)]
-      dc5 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc5 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Amabalis fir", "Western hemlock","Western red cedar"),
                              .(mean = mean(AbsoluteDensity)), by=DecayClass][DecayClass == 5, sum(mean)]
       if (Decay_class == "1"){
@@ -197,15 +197,15 @@ calc_cwd_c <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
         DC_Sp_C <-(volume_ha*0.412*dc5*0.535)
       }
     } else if(BECzone == "SBS"){
-      dc1 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine"),
+      dc1 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 1, sum(mean)]
-      dc2 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine"),
+      dc2 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 2, sum(mean)]
-      dc3 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine"),
+      dc3 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 3, sum(mean)]
-      dc4 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine"),
+      dc4 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 4, sum(mean)]
-      dc5 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine"),
+      dc5 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 5, sum(mean)]
       if (Decay_class == "1"){
         DC_Sp_C <-(volume_ha*1*dc1*0.496) #check
@@ -223,15 +223,15 @@ calc_cwd_c <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
     }
   } else if (Species == "UD"){
     if(BECzone == "ICH"){
-      dc1 <- cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
+      dc1 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 1, sum(mean)]
-      dc2 <- cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
+      dc2 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 2, sum(mean)]
-      dc3 <- cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
+      dc3 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 3, sum(mean)]
-      dc4 <- cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
+      dc4 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 4, sum(mean)]
-      dc5 <- cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
+      dc5 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 5, sum(mean)]
       if (Decay_class == "1"){
         DC_Sp_C <-(volume_ha*1*dc1*0.478)
@@ -245,15 +245,15 @@ calc_cwd_c <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
         DC_Sp_C <-(volume_ha*0.412*dc5*0.473)
         }
     } else if(BECzone =="SBS"){
-      dc1 <- cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
+      dc1 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 1, sum(mean)]
-      dc2 <- cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
+      dc2 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 2, sum(mean)]
-      dc3 <- cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
+      dc3 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 3, sum(mean)]
-      dc4 <- cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
+      dc4 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 4, sum(mean)]
-      dc5 <- cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
+      dc5 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 5, sum(mean)]
       if (Decay_class == "1"){
         DC_Sp_C <-(volume_ha*1*dc1*0.478)
@@ -271,23 +271,23 @@ calc_cwd_c <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
     }
   } else if (Species == "U"){
     if(BECzone == "ICH"){
-      dc1 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc1 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                               "Amabalis fir", "Western hemlock", "Western red cedar",
                                               "Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 1, sum(mean)]
-      dc2 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc2 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Amabalis fir", "Western hemlock", "Western red cedar",
                                                "Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 2, sum(mean)]
-      dc3 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc3 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Amabalis fir", "Western hemlock", "Western red cedar",
                                                "Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 3, sum(mean)]
-      dc4 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc4 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Amabalis fir", "Western hemlock", "Western red cedar",
                                                "Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 4, sum(mean)]
-      dc5 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc5 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Amabalis fir", "Western hemlock", "Western red cedar",
                                                "Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 5, sum(mean)]
@@ -303,19 +303,19 @@ calc_cwd_c <- function(volume_ha, Decay_class, Species, BECzone = "SBS"){
         DC_Sp_C <-(volume_ha*0.412*dc5*0.535)
       }
     } else if(BECzone == "SBS"){
-      dc1 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc1 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 1, sum(mean)]
-      dc2 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc2 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 2, sum(mean)]
-      dc3 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc3 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 3, sum(mean)]
-      dc4 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc4 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 4, sum(mean)]
-      dc5 <- cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
+      dc5 <- treeCalcs::cwdC_conv_table[CommonName %in% c("Subalpine fir", "Hybrid spruce", "Lodgepole pine",
                                                "Trembling aspen", "Black cottonwood", "Paper birch"),
                              .(mean = mean(AbsoluteDensity)), by = DecayClass][DecayClass == 5, sum(mean)]
       if (Decay_class == "1"){
