@@ -12,3 +12,6 @@ calc_sm_tree_c_Ung(Species, Height_class, Diam_est, Health)
 \description{
 calculate small tree carbon
 }
+\details{
+Live_Dead - should we specify live and dead? Is it worth it?
+}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/smallTreeCarbon.R
 \name{calc_sm_tree_c_Annigofer}
 \alias{calc_sm_tree_c_Annigofer}
-\title{Title}
+\title{Small tree Annigofer equations}
 \usage{
 calc_sm_tree_c_Annigofer(Species, Height_class)
 }
@@ -10,5 +10,5 @@ calc_sm_tree_c_Annigofer(Species, Height_class)
 \item{Height_class}{}
 }
 \description{
-Title
+Small tree Annigofer equations
 }
