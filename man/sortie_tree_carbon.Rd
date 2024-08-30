@@ -4,7 +4,7 @@
 \alias{sortie_tree_carbon}
 \title{Title}
 \usage{
-sortie_tree_carbon(sortie_outputs, dead = FALSE, BEC, Ht_from_diam = TRUE)
+sortie_tree_carbon(sortie_outputs, dead = FALSE, BEC, ht_from_diam = TRUE)
 }
 \arguments{
 \item{sortie_outputs}{sortie output saved in a data.table}

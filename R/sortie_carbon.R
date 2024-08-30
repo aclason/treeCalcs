@@ -51,7 +51,7 @@ read_sortie <- function(outputs) {
 #' To do: add argument for seedling to call the seedling carbon function
 #'
 #' @examples
-sortie_tree_carbon <- function(sortie_outputs, dead = FALSE, BEC, Ht_from_diam = TRUE){
+sortie_tree_carbon <- function(sortie_outputs, dead = FALSE, BEC, ht_from_diam = TRUE){
 
   sort_out <- read_sortie(outputs = sortie_outputs)
 
@@ -72,13 +72,32 @@ sortie_tree_carbon <- function(sortie_outputs, dead = FALSE, BEC, Ht_from_diam =
   if(any(is.na(sort_out$Species),na.rm = FALSE)) cat("at least one tree species is not identified\n")
 
   #if using the height by diameter function, apply it here
-  if(Ht_from_diam == TRUE){
+  if(ht_from_diam == "standard"){
 
     sort_out[, calc_height := treeCalcs::height_dbh(Species = Species,
                                                     DBH = DBH,
                                                     BECzone = BEC),
              by =seq_len(nrow(sort_out))]
+
+  }else if(ht_from_diam != "standard" & BECzone == "ICH"){
+    #if it's in the ICH, we currently have these options:
+    if(ht_from_diam == "plantation"){
+
+      sort_out[, calc_height := treeCalcs::height_dbh_plantations(Species = Species,
+                                                                  DBH = DBH,
+                                                                  BECzone = BEC),
+               by =seq_len(nrow(sort_out))]
+
+    }else if(ht_from_diam == "residual"){
+      sort_out[, calc_height := treeCalcs::height_dbh_Residuals(Species = Species,
+                                                                DBH = DBH,
+                                                                BECzone = BEC),
+               by =seq_len(nrow(sort_out))]
+    }
+  }else{
+    stop("cannot calculate alternate diam-height allometries outside the ICH")
   }
+
 
   #sort_out_d <- sort_out[Type=="Snag"]
   #sort_out_l <- sort_out[Type!="Snag"]
@@ -93,7 +112,7 @@ sortie_tree_carbon <- function(sortie_outputs, dead = FALSE, BEC, Ht_from_diam =
     #calculate carbon from trees
     #sort_out[, Kg_treec:= TreeCarbonFN(Species = Species, DBH = DBH, HT=Height, Tree_class = Class),
     #       by = seq_len(nrow(sort_out))]
-    if(Ht_from_diam == TRUE){
+    if(ht_from_diam == TRUE){
       sort_out[, Kg_treec := calc_tree_c(Species = Species,
                                          DBH = DBH,
                                          HT = calc_height,
