@@ -2,7 +2,7 @@
 
 #' calculate small tree carbon
 #'
-#' @param Species
+#' @param Species current valid species are At, Ac, Cw, Bl, Ep, Hw, Pl, Sx, Fd, UC, Lw
 #' @param Height_class
 #' @param Diam_est
 #' @param Health
@@ -73,6 +73,24 @@ calc_sm_tree_c_Ung <- function(Species, Height_class, Diam_est, Health){
       }
     }
   } else if(Species=="Bl"){
+    if(Height_class == "0-30"){
+      if(Health=="L"){
+        Reg_C2 <- ((0.0220*Diam_est^1.6469*0.15^1.1714)+(0.0061*Diam_est^1.8603*0.15^0.7693)+
+                     (0.0265*Diam_est^3.6747*0.15^-1.5958)+(0.0509*Diam_est^2.9909*0.15^-1.2271))*0.5
+      } else if (Health=="D"){
+        Reg_C2 <- ((0.0220*Diam_est^1.6469*0.15^1.1714)+(0.0061*Diam_est^1.8603*0.15^0.7693)+
+                     (0.0265*Diam_est^3.6747*0.15^-1.5958)+(0.0509*Diam_est^2.9909*0.15^-1.2271))*0.5*0.95
+      }
+    } else if (Height_class == "31-130"){
+      if(Health=="L"){
+        Reg_C2 <- ((0.0220*Diam_est^1.6469*0.80^1.1714)+(0.0061*Diam_est^1.8603*0.80^0.7693)+
+                     (0.0265*Diam_est^3.6747*0.80^-1.5958)+(0.0509*Diam_est^2.9909*0.80^-1.2271))*0.5
+      } else if (Health=="D"){
+        Reg_C2 <- ((0.0220*Diam_est^1.6469*0.80^1.1714)+(0.0061*Diam_est^1.8603*0.80^0.7693)+
+                     (0.0265*Diam_est^3.6747*0.80^-1.5958)+(0.0509*Diam_est^2.9909*0.80^-1.2271))*0.5*0.95
+      }
+    }
+  } else if(Species=="Ba"){ #using Bl
     if(Height_class == "0-30"){
       if(Health=="L"){
         Reg_C2 <- ((0.0220*Diam_est^1.6469*0.15^1.1714)+(0.0061*Diam_est^1.8603*0.15^0.7693)+

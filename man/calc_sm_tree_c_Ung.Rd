@@ -7,6 +7,8 @@
 calc_sm_tree_c_Ung(Species, Height_class, Diam_est, Health)
 }
 \arguments{
+\item{Species}{current valid species are At, Ac, Cw, Bl, Ep, Hw, Pl, Sx, Fd, UC, Lw}
+
 \item{Health}{}
 }
 \description{
