@@ -4,6 +4,15 @@
 
 #two different equations for stubs “conical frustrum”... just a cylinder if DBH is used for D at the base and D at the upper end
 
+#' Title
+#'
+#' @param Height
+#' @param DBH
+#'
+#' @return
+#' @export
+#'
+#' @examples
 StubVol_ConicFru <-function(Height, DBH) {
   Ab<-pi *(DBH/200)^2 #area of the base
   Au<-pi *(DBH/200)^2 #area of the top
@@ -39,14 +48,7 @@ kozak88_di<-function(dbh, h, hi, p, a1, a2, a3, a4, a5, a6, a7, a8){
   a1 * dbh^a2 * a3^dbh * Xi^(a4 * z^2 + a5 * log(z + 0.001) + a6*z^0.5 + a7 * (dbh/h) + a8 *exp(z))
 }
 
-#Kozak model 88 (Kozak 2004) coefficients for BC commercial species from timber pricing branch compilation rules for Date Creek
-#p, a1, a2, a3, a4, a5, a6, a7, a8
 
-colnames(Kozak_coef)<-c("p", "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8")
-rownames(Kozak_coef)<-c("Cw", "Hw", "Bl", "Ba", "Sx", "Pl", "Ac", "Ep", "At", "UC")
-#test
-kozak88_di(dbh = 10, h= 10, hi = 0.1, p = Cw_Kozak[1], a1= Cw_Kozak[2], a2= Cw_Kozak[3],
-           a3= Cw_Kozak[4], a4= Cw_Kozak[5], a5= Cw_Kozak[6], a6= Cw_Kozak[7], a7= Cw_Kozak[8], a8= Cw_Kozak[9])
 
 #Taper equations make very large diameters near 0 so using 0.3 as height of the base diameter instead of 0
 #' Title
@@ -86,6 +88,15 @@ StubVol_ConicPara <-function(Height, DBH, Species, StubHT) {
   Kozak_coef <- rbind(Cw_Kozak, Hw_Kozak, Bl_Kozak, Ba_Kozak, Sx_Kozak,
                     Pl_Kozak, Ac_Kozak, Ep_Kozak, At_Kozak, UC_Kozak)
 
+  #Kozak model 88 (Kozak 2004) coefficients for BC commercial species from timber pricing branch compilation rules for Date Creek
+  #p, a1, a2, a3, a4, a5, a6, a7, a8
+
+  colnames(Kozak_coef)<-c("p", "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8")
+  rownames(Kozak_coef)<-c("Cw", "Hw", "Bl", "Ba", "Sx", "Pl", "Ac", "Ep", "At", "UC")
+  #test
+  #kozak88_di(dbh = 10, h= 10, hi = 0.1, p = Cw_Kozak[1], a1= Cw_Kozak[2], a2= Cw_Kozak[3],
+   #          a3= Cw_Kozak[4], a4= Cw_Kozak[5], a5= Cw_Kozak[6], a6= Cw_Kozak[7],
+    #         a7= Cw_Kozak[8], a8= Cw_Kozak[9])
 
   Kozak.row <- Kozak_coef[c(Species),]
   BarkThickness <- DBH - kozak88_di(dbh = DBH, h= Height, hi = 1.3, p = Kozak.row[1],
