@@ -37,8 +37,9 @@ read_sortie <- function(outputs) {
 #' @param sortie_outputs sortie output saved in a data.table
 #' @param dead include snags in the calculation
 #' @param BEC Biogeoclimatic ecosystem classification zone
-#' @param Ht_from_diam calculate the height based on the diameter (allometry) == TRUE
-#' or use Height from Sortie == FALSE
+#' @param Ht_from_diam calculate the height based on the diameter (allometry) standard
+#' plantation or residual are all options (ICH only for plantation or residual). "none" means
+#' use whichever height is already there.
 #'
 #' @return
 #' @export
@@ -51,7 +52,7 @@ read_sortie <- function(outputs) {
 #' To do: add argument for seedling to call the seedling carbon function
 #'
 #' @examples
-sortie_tree_carbon <- function(sortie_outputs, dead = FALSE, BEC, ht_from_diam = TRUE){
+sortie_tree_carbon <- function(sortie_outputs, BEC, ht_from_diam = "standard"){
 
   sort_out <- read_sortie(outputs = sortie_outputs)
 
@@ -79,76 +80,64 @@ sortie_tree_carbon <- function(sortie_outputs, dead = FALSE, BEC, ht_from_diam =
                                                     BECzone = BEC),
              by =seq_len(nrow(sort_out))]
 
-  }else if(ht_from_diam != "standard" & BECzone == "ICH"){
+
+    #to do: get snag decay class from SnagDecayClass column
+    #sort_out_d[, Class := 3]
+    #sort_out_l[, Class := 1]
+    #sort_out <- rbind(sort_out_l,sort_out_d)
+    sort_out[, Class := ifelse(Type == "Snag",3,1)]
+
+        #calculate carbon from trees
+    #sort_out[, Kg_treec:= TreeCarbonFN(Species = Species, DBH = DBH, HT=Height, Tree_class = Class),
+    #       by = seq_len(nrow(sort_out))]
+
+    sort_out[, Kg_treec := calc_tree_c(Species = Species,
+                                       DBH = DBH,
+                                       HT = calc_height,
+                                       Tree_class = Class),
+                 by = seq_len(nrow(sort_out))]
+
+  }else if(ht_from_diam ==  "plantation" & BECzone == "ICH"){
     #if it's in the ICH, we currently have these options:
-    if(ht_from_diam == "plantation"){
 
       sort_out[, calc_height := treeCalcs::height_dbh_plantations(Species = Species,
                                                                   DBH = DBH,
                                                                   BECzone = BEC),
                by =seq_len(nrow(sort_out))]
-
-    }else if(ht_from_diam == "residual"){
-      sort_out[, calc_height := treeCalcs::height_dbh_Residuals(Species = Species,
-                                                                DBH = DBH,
-                                                                BECzone = BEC),
-               by =seq_len(nrow(sort_out))]
-    }
-  }else{
-    stop("cannot calculate alternate diam-height allometries outside the ICH")
-  }
-
-
-  #sort_out_d <- sort_out[Type=="Snag"]
-  #sort_out_l <- sort_out[Type!="Snag"]
-
-  if(dead == TRUE){
-    #to do: get snag decay class from SnagDecayClass column
-    #sort_out_d[, Class := 3]
-    #sort_out_l[, Class := 1]
-    #sort_out <- rbind(sort_out_l,sort_out_d)
-
-    sort_out[, Class := ifelse(Type == "Snag",3,1)]
-    #calculate carbon from trees
-    #sort_out[, Kg_treec:= TreeCarbonFN(Species = Species, DBH = DBH, HT=Height, Tree_class = Class),
-    #       by = seq_len(nrow(sort_out))]
-    if(ht_from_diam == TRUE){
+      sort_out[, Class := ifelse(Type == "Snag",3,1)]
+      #calculate carbon from trees
+      #sort_out[, Kg_treec:= TreeCarbonFN(Species = Species, DBH = DBH, HT=Height, Tree_class = Class),
+      #       by = seq_len(nrow(sort_out))]
       sort_out[, Kg_treec := calc_tree_c(Species = Species,
                                          DBH = DBH,
                                          HT = calc_height,
                                          Tree_class = Class),
                by = seq_len(nrow(sort_out))]
-    }else {
+
+  }else if(ht_from_diam == "residual" & BECzone == "ICH"){
+      sort_out[, calc_height := treeCalcs::height_dbh_Residuals(Species = Species,
+                                                                DBH = DBH,
+                                                                BECzone = BEC),
+               by =seq_len(nrow(sort_out))]
+
+      sort_out[, Class := ifelse(Type == "Snag",3,1)]
+      #calculate carbon from trees
+      #sort_out[, Kg_treec:= TreeCarbonFN(Species = Species, DBH = DBH, HT=Height, Tree_class = Class),
+      #       by = seq_len(nrow(sort_out))]
+      sort_out[, Kg_treec := calc_tree_c(Species = Species,
+                                         DBH = DBH,
+                                         HT = calc_height,
+                                         Tree_class = Class),
+               by = seq_len(nrow(sort_out))]
+
+  }else if(ht_from_diam == "none"){
       sort_out[, Kg_treec := calc_tree_c(Species = Species,
                                          DBH = DBH,
                                          HT = Height,
                                          Tree_class = Class),
                by = seq_len(nrow(sort_out))]
-    }
-
-
   }else{
-    #live only
-    #sort_out_l[, Class:=1]
-    sort_out <- sort_out[Type != "Snag"]
-    sort_out[, Class := 1]
-
-    if(Ht_from_diam == TRUE){
-      #calculate carbon from trees
-      sort_out[, Kg_treec := TreeCarbonFN(Species = Species,
-                                          DBH = DBH,
-                                          HT = calc_height,
-                                          Tree_class = Class),
-               by = seq_len(nrow(sort_out))]
-    } else{
-      #calculate carbon from trees
-      sort_out[, Kg_treec := TreeCarbonFN(Species = Species,
-                                          DBH = DBH,
-                                          HT=Height,
-                                          Tree_class = Class),
-               by = seq_len(nrow(sort_out))]
-    }
-
+    stop("cannot calculate alternate diam-height allometries outside the ICH")
   }
 
   # Translate to Mg C/ tree
