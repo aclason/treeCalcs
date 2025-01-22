@@ -71,6 +71,8 @@ if(BECzone == "SBS"){
 
 
   } else if(BECzone=="ICH"){
+    #from Canham et al 1999, Measurement and modeling of spatially-explicit variation in light
+    # transmission through interior cedar-hemlock forests in BC
     if(is.na(Species)){
       print(paste("Species is not found"))
       HT <- NA
