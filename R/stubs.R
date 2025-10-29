@@ -23,7 +23,7 @@ StubVol_ConicFru <-function(Height, DBH) {
 }
 
 
-#' Title
+#' Kozak 1988 function
 #'
 #' @param dbh
 #' @param h
@@ -49,8 +49,6 @@ kozak88_di<-function(dbh, h, hi, p, a1, a2, a3, a4, a5, a6, a7, a8){
 }
 
 
-
-#Taper equations make very large diameters near 0 so using 0.3 as height of the base diameter instead of 0
 #' Title
 #'
 #' @param Height
@@ -58,8 +56,12 @@ kozak88_di<-function(dbh, h, hi, p, a1, a2, a3, a4, a5, a6, a7, a8){
 #' @param Species
 #' @param StubHT
 #'
-#' @return returns the estimate of volume/ha (not sure how it becomes per hectare - check w Erica)
+#' @return returns the estimate of volume/ha
 #' @export
+#' @details
+#' Additional details...
+#' Taper equations make very large diameters near 0 so using 0.3 as height of the base diameter
+#' instead of 0
 #'
 #' @examples
 StubVol_ConicPara <-function(Height, DBH, Species, StubHT) {
